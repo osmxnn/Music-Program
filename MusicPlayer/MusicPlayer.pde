@@ -11,7 +11,9 @@ import ddf.minim.ugens.*;
 Minim minim;
 int numberOfSongs = 4;
 AudioPlayer[] song = new AudioPlayer[numberOfSongs];
+AudioMetaData[] songMetaData = new AudioMetaData[numberOfSongs];
 int currentSong = numberOfSongs - numberOfSongs;
+int loopNum = 1;
 
 color white = #FFFFFF;
 void setup() {
@@ -26,8 +28,9 @@ void setup() {
 };//End Setup
 
 void draw() {
-   background(0);
-  stroke(255);
+   background(255);
+  stroke(0);
+  fill(0);
   
   //Draw the waveforms
   //The values returned by left.get() and right.get() will be between -1 and 1,
