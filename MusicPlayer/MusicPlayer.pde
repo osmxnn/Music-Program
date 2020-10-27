@@ -23,12 +23,17 @@ float FFInternalX1, FFInternalY1, FFInternalX2, FFInternalY2;
 float FFInternalTX1, FFInternalTY1, FFInternalTX2, FFInternalTY2, FFInternalTX3, FFInternalTY3;
 float FRInternalX1, FRInternalY1, FRInternalX2, FRInternalY2;
 float FRInternalTX1, FRInternalTY1, FRInternalTX2, FRInternalTY2, FRInternalTX3, FRInternalTY3;
-
+float NSbuttonX1, NSbuttonY1, NSbuttonDiameter;
+float NSbuttonInternalX1, NSbuttonInternalY1, NSbuttonInternalX2, NSbuttonInternalY2, NSbuttonInternalX3, NSbuttonInternalY3;
+float NSbuttonInternal2X1, NSbuttonInternal2Y1, NSbuttonInternal2X2, NSbuttonInternal2Y2, NSbuttonInternal2X3, NSbuttonInternal2Y3;
+float PSbuttonInternalX1, PSbuttonInternalY1, PSbuttonInternalX2, PSbuttonInternalY2, PSbuttonInternalX3, PSbuttonInternalY3;
+float PSbuttonInternal2X1, PSbuttonInternal2Y1, PSbuttonInternal2X2, PSbuttonInternal2Y2, PSbuttonInternal2X3, PSbuttonInternal2Y3;
+float PSbuttonX1, PSbuttonY1, PSbuttonDiameter;
 
 color white = #FFFFFF;
 void setup() {
 
-  size(900, 675);
+  size(1200, 675);
 
   minim = new Minim(this);
   song[0] = minim.loadFile("jump man 93 - oldbandstuffs 1 (128 kbps).mp3");
@@ -78,47 +83,83 @@ void setup() {
   playbuttonY1 = height*3/4;
   playbuttonDiameter = 90;
 
-  FFbuttonX1 = width*3/4;
+  FFbuttonX1 = width*125/200;
   FFbuttonY1 = height*3/4;
   FFbuttonDiameter = 90;
 
-  FRbuttonX1 = width*1/4;
+  FRbuttonX1 = width*75/200;
   FRbuttonY1 = height*3/4;
   FRbuttonDiameter = 90;
 
-  PB1InternalX1 = 455;
+  PB1InternalX1 = width*98/200;
   PB1InternalY1 = height*23/32;
   PB1InternalX2 = 10;
   PB1InternalY2 = 40;
 
-  PB2InternalX1 = 435;
+  PB2InternalX1 = width*101/200;
   PB2InternalY1 = height*23/32;
   PB2InternalX2 = 10;
   PB2InternalY2 = 40;
   
-  FFInternalX1 = width*72/100;
+  FFInternalX1 = width*119/200;
   FFInternalY1 = height*74/100;
   FFInternalX2 = 40;
   FFInternalY2 = 10;
   
-  FFInternalTX1 =width*75/100;
+  FFInternalTX1 =width*62/100;
   FFInternalTY1 =height*77/100;
-  FFInternalTX2 = width*75/100;
+  FFInternalTX2 = width*62/100;
   FFInternalTY2 = height*73/100;
-  FFInternalTX3 = width*78/100;
+  FFInternalTX3 = width*65/100;
   FFInternalTY3 = height*75/100;
   
-  FRInternalX1 = width*24/100;
+  FRInternalX1 = width*75/200;
   FRInternalY1 = height*74/100;
   FRInternalX2 = 40;
   FRInternalY2 = 10;
   
-  FRInternalTX1 =width*25/100;
+  FRInternalTX1 =width*38/100;
   FRInternalTY1 =height*77/100;
-  FRInternalTX2 = width*25/100;
+  FRInternalTX2 = width*38/100;
   FRInternalTY2 = height*73/100;
-  FRInternalTX3 = width*22/100;
+  FRInternalTX3 = width*35/100;
   FRInternalTY3 = height*75/100;
+  
+  NSbuttonInternalX1 =width*75/100;
+  NSbuttonInternalY1 =height*77/100;
+  NSbuttonInternalX2 =width*75/100;
+  NSbuttonInternalY2 =height*73/100;
+  NSbuttonInternalX3 =width*77/100;
+  NSbuttonInternalY3 =height*75/100;
+  
+  NSbuttonInternal2X1 =width*73/100;
+  NSbuttonInternal2Y1 =height*77/100;
+  NSbuttonInternal2X2 =width*73/100;
+  NSbuttonInternal2Y2 =height*73/100;
+  NSbuttonInternal2X3 =width*75/100;
+  NSbuttonInternal2Y3 =height*75/100;
+  
+  NSbuttonX1 =width*50/200;
+  NSbuttonY1 = height*3/4;
+  NSbuttonDiameter = 90;
+  
+  PSbuttonInternalX1 =width*25/100;
+  PSbuttonInternalY1 =height*77/100;
+  PSbuttonInternalX2 =width*25/100;
+  PSbuttonInternalY2 =height*73/100;
+  PSbuttonInternalX3 =width*23/100;
+  PSbuttonInternalY3 =height*75/100;
+  
+  PSbuttonInternal2X1 =width*27/100;
+  PSbuttonInternal2Y1 =height*77/100;
+  PSbuttonInternal2X2 =width*27/100;
+  PSbuttonInternal2Y2 =height*73/100;
+  PSbuttonInternal2X3 =width*25/100;
+  PSbuttonInternal2Y3 =height*75/100;
+  
+  PSbuttonX1 =width*150/200;
+  PSbuttonY1 = height*3/4;
+  PSbuttonDiameter = 90;
   
  quitButtonSetup();
 };//End Setup
@@ -160,7 +201,11 @@ void draw() {
   fill(#FFFFFF);
   stroke(0);
   
- 
+  rect(width*21/100, height*136/200, 95, 95);      //       Previous Song Box Outline
+  rect(width*71/100, height*136/200, 95, 95);      //       Next Song Box Outline
+  rect(width*92/200, height*136/200, 95, 95);      //       Pause Button Box Outline
+  rect(width*117/200, height*136/200, 95, 95);     //       Fast Forward Box Outline
+  rect(width*67/200, height*136/200, 95, 95);      //       Rewind Box Outline
   ellipse(playbuttonX1, playbuttonY1, playbuttonDiameter, playbuttonDiameter);
   ellipse( FFbuttonX1, FFbuttonY1, FFbuttonDiameter, FFbuttonDiameter);
   ellipse( FRbuttonX1, FRbuttonY1, FRbuttonDiameter, FRbuttonDiameter);
@@ -170,17 +215,19 @@ void draw() {
   triangle(FFInternalTX1, FFInternalTY1, FFInternalTX2, FFInternalTY2, FFInternalTX3, FFInternalTY3);
   rect(FRInternalX1, FRInternalY1, FRInternalX2, FRInternalY2);
   triangle(FRInternalTX1, FRInternalTY1, FRInternalTX2, FRInternalTY2, FRInternalTX3, FRInternalTY3);
- 
-
- 
-  
+  ellipse(NSbuttonX1, NSbuttonY1, NSbuttonDiameter, NSbuttonDiameter);
+  ellipse(PSbuttonX1, PSbuttonY1, PSbuttonDiameter, PSbuttonDiameter);
+  triangle(NSbuttonInternalX1, NSbuttonInternalY1, NSbuttonInternalX2, NSbuttonInternalY2, NSbuttonInternalX3, NSbuttonInternalY3);
+  triangle(PSbuttonInternalX1, PSbuttonInternalY1, PSbuttonInternalX2, PSbuttonInternalY2, PSbuttonInternalX3, PSbuttonInternalY3);
+  triangle(NSbuttonInternal2X1, NSbuttonInternal2Y1, NSbuttonInternal2X2, NSbuttonInternal2Y2, NSbuttonInternal2X3, NSbuttonInternal2Y3);
+  triangle(PSbuttonInternal2X1, PSbuttonInternal2Y1, PSbuttonInternal2X2, PSbuttonInternal2Y2, PSbuttonInternal2X3, PSbuttonInternal2Y3);
 
  quitButtonDraw();
 };//End draw
 
 void mousePressed() {
-  //400 455 100 100
-  if (mouseX>400 && mouseX< 400+100&& mouseY> 455 && mouseY<455+100) {   //pause
+  //400 455 100 100 // width*92/200, height*136/200, 95, 95
+  if (mouseX>width*92/200 && mouseX< width*92/200+95&& mouseY> height*136/200 && mouseY<height*136/200+95) {   //pause
     if ( song[currentSong].isPlaying() ) {
       song[currentSong].pause();
     } else if ( song[currentSong].position() == song[currentSong].length()) {
@@ -190,11 +237,62 @@ void mousePressed() {
       song[currentSong].play();
     }
   }
-  // width*14/20, height*17/25, 90, 90
-  if (mouseX>width*14/20 && mouseX< width*14/20+90&& mouseY> height*17/25 && mouseY<height*17/25+90) song[currentSong].skip(5000);    //skip 5 seconds
+  // width*117/200, height*17/25, 90, 90
+  if (mouseX>width*117/200 && mouseX< width*117/200+90&& mouseY> height*17/25 && mouseY<height*17/25+90) song[currentSong].skip(5000);    //skip 5 seconds
   // width*4/20, height*17/25, 90, 90
-  if (mouseX>width*4/20 && mouseX< width*4/20+90&& mouseY> height*17/25 && mouseY<height*17/25+90) song[currentSong].skip(-5000);    //go back 5 seconds
+  if (mouseX>width*67/200 && mouseX< width*67/200+90&& mouseY> height*17/25 && mouseY<height*17/25+90) song[currentSong].skip(-5000);    //go back 5 seconds
   
+  if (mouseX>width*71/100 && mouseX< width*71/100+90&& mouseY> height*17/25 && mouseY<height*17/25+90) { //Next Button to Console
+    if (song[currentSong].isPlaying()) {
+      song[currentSong].pause();
+      song[currentSong].rewind();
+      if ( currentSong == numberOfSongs - numberOfSongs ) {
+        println ("Current Song is the first song, ", "Number: " + currentSong); //For Debugging
+        currentSong = numberOfSongs - 1;
+        println ("Current Song is now the last song, ", "Number: " + currentSong); //For Debugging
+      } else {
+        currentSong -= 1; // Equivalent code: currentSong = currentSong - 1
+        println ("Current Song after the next or back button, but not the first song", "\tNumber: " + currentSong); //For Debugging
+      }
+      song[currentSong].play();
+    } else {
+      song[currentSong].rewind();
+      if ( currentSong == numberOfSongs - numberOfSongs ) {
+        println ("Current Song is the first song, ", "Number: " + currentSong); //For Debugging
+        currentSong = numberOfSongs - -1;
+        println ("Current Song is now the last song, ", "Number: " + currentSong); //For DebuggingcurrentSong = numberOfSongs - numberOfSongs;
+      } else {
+        currentSong -= -1; // Equivalent code: currentSong = currentSong - 1
+        println ("Current Song after the next or back button, but not the first song, ", "Number: "+currentSong); //For Debugging
+      }
+    }
+  }
+
+ if (mouseX>width*21/100 && mouseX< width*21/100+90&& mouseY> height*17/25 && mouseY<height*17/25+90) { //Next Button to Console
+    if (song[currentSong].isPlaying()) {
+      song[currentSong].pause();
+      song[currentSong].rewind();
+      if ( currentSong == numberOfSongs - numberOfSongs ) {
+        println ("Current Song is the first song, ", "Number: " + currentSong); //For Debugging
+        currentSong = numberOfSongs - 1;
+        println ("Current Song is now the last song, ", "Number: " + currentSong); //For Debugging
+      } else {
+        currentSong -= -1; // Equivalent code: currentSong = currentSong - 1
+        println ("Current Song after the next or back button, but not the first song", "\tNumber: " + currentSong); //For Debugging
+      }
+      song[currentSong].play();
+    } else {
+      song[currentSong].rewind();
+      if ( currentSong == numberOfSongs - numberOfSongs ) {
+        println ("Current Song is the first song, ", "Number: " + currentSong); //For Debugging
+        currentSong = numberOfSongs - -1;
+        println ("Current Song is now the last song, ", "Number: " + currentSong); //For DebuggingcurrentSong = numberOfSongs - numberOfSongs;
+      } else {
+        currentSong -= -1; // Equivalent code: currentSong = currentSong - 1
+        println ("Current Song after the next or back button, but not the first song, ", "Number: "+currentSong); //For Debugging
+      }
+    }
+  }
  quitButtonMouseClicked();
 };//End mousePressed
 
@@ -224,4 +322,60 @@ void keyPressed() {
   if ( key == 'l' || key == 'L') song[currentSong].loop(loopNum); 
   if ( key == 'f' || key == 'F') song[currentSong].skip(5000); 
   if ( key == 'r' || key == 'R') song[currentSong].skip(-5000);
+  
+ 
+  println ("Current Song before the next or back button, ", "Number: "+currentSong); //For Debugging
+  //Solution for Back or Previous Button, copy the next button code: change to -1, change previous song at beginning to last song
+  
+  if (key == 'b' || key == 'B') { //Next Button to Console
+    if (song[currentSong].isPlaying()) {
+      song[currentSong].pause();
+      song[currentSong].rewind();
+      if ( currentSong == numberOfSongs - numberOfSongs ) {
+        println ("Current Song is the first song, ", "Number: " + currentSong); //For Debugging
+        currentSong = numberOfSongs - 1;
+        println ("Current Song is now the last song, ", "Number: " + currentSong); //For Debugging
+      } else {
+        currentSong -= 1; // Equivalent code: currentSong = currentSong - 1
+        println ("Current Song after the next or back button, but not the first song", "\tNumber: " + currentSong); //For Debugging
+      }
+      song[currentSong].play();
+    } else {
+      song[currentSong].rewind();
+      if ( currentSong == numberOfSongs - numberOfSongs ) {
+        println ("Current Song is the first song, ", "Number: " + currentSong); //For Debugging
+        currentSong = numberOfSongs - 1;
+        println ("Current Song is now the last song, ", "Number: " + currentSong); //For DebuggingcurrentSong = numberOfSongs - numberOfSongs;
+      } else {
+        currentSong -= 1; // Equivalent code: currentSong = currentSong - 1
+        println ("Current Song after the next or back button, but not the first song, ", "Number: "+currentSong); //For Debugging
+      }
+    }
+  }
+  
+  if (key == 'p' || key == 'P') { //Next Button to Console
+    if (song[currentSong].isPlaying()) {
+      song[currentSong].pause();
+      song[currentSong].rewind();
+      if ( currentSong == numberOfSongs - numberOfSongs ) {
+        println ("Current Song is the first song, ", "Number: " + currentSong); //For Debugging
+        currentSong = numberOfSongs - 1;
+        println ("Current Song is now the last song, ", "Number: " + currentSong); //For Debugging
+      } else {
+        currentSong -= -1; // Equivalent code: currentSong = currentSong - 1
+        println ("Current Song after the next or back button, but not the first song", "\tNumber: " + currentSong); //For Debugging
+      }
+      song[currentSong].play();
+    } else {
+      song[currentSong].rewind();
+      if ( currentSong == numberOfSongs - numberOfSongs ) {
+        println ("Current Song is the first song, ", "Number: " + currentSong); //For Debugging
+        currentSong = numberOfSongs - -1;
+        println ("Current Song is now the last song, ", "Number: " + currentSong); //For DebuggingcurrentSong = numberOfSongs - numberOfSongs;
+      } else {
+        currentSong -= -1; // Equivalent code: currentSong = currentSong - 1
+        println ("Current Song after the next or back button, but not the first song, ", "Number: "+currentSong); //For Debugging
+      }
+    }
+  }
 };//End keyPressed

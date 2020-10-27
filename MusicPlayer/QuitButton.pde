@@ -7,7 +7,7 @@ color redQuitButton = #FA6A6A;
 color lightredQuitButton = #E57183;
 
 void quitButtonRect() {
-  rect(width*19/20, height*1/4, width*1/20, height*1/20);
+  rect(width*19/20, height*0/4, width*1/20, height*1/20);
 }
 void quitButtonSetup() {
   fill(255);
@@ -17,7 +17,7 @@ void quitButtonSetup() {
 
 void quitButtonDraw() {
   //HoverOver
-  if (mouseX >= width*19/20  && mouseX <= width && mouseY >= height*5/20 && mouseY <= height*6/20) {
+  if (mouseX >= width*19/20  && mouseX <= width && mouseY >= height*0 && mouseY <= height*1/20) {
     fill(redQuitButton);
     quitButtonRect();
   } else {
@@ -27,15 +27,15 @@ void quitButtonDraw() {
 
   //Text in Quit Button
   fill(black1); //Ink, hexidecimal copied from Color Selector
-  textAlign (CENTER, CENTER); //Align X&Y, see Processing.org / Reference
+ // textAlign (CENTER, CENTER); //Align X&Y, see Processing.org / Reference
   //Values: [LEFT | CENTER | RIGHT] & [TOP | CENTER | BOTTOM | BASELINE]
   textFont(quitButtonFont, 20); //Change the number until it fits, largest font size
-  text(title, width*19/20, height*1/4, width*1/20, height*1/20);
+  text(title, width*155/160, height*1/200, width*1/20, height*1/20);
   fill(255); //Reset to white for rest of the program
 }
 
 void quitButtonMouseClicked() {
-  if (mouseX >= width*19/20  && mouseX <= width && mouseY >= height*5/20 && mouseY <= height*6/20) {
+  if (mouseX >= width*19/20  && mouseX <= width && mouseY >= height*0 && mouseY <= height*1/20) {
     exit();
   }
 }
